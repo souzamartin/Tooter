@@ -1,0 +1,2 @@
+class TootsController < ApplicationController
+end

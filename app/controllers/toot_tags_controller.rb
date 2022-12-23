@@ -1,0 +1,2 @@
+class TootTagsController < ApplicationController
+end
