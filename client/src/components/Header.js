@@ -1,7 +1,10 @@
 const Header = ({user, setUser}) => {
     const handleLogout = () => {
         fetch('/logout', {method: 'DELETE'})
-        .then(setUser(null))
+        .then(r => {
+            if (r.ok)
+                setUser(null)
+        })
     }
 
     return (

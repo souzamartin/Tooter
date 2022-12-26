@@ -10,3 +10,9 @@
     align-items: flex-start;
     justify-content: space-around;
 }
+
+#toot-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
