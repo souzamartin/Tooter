@@ -25,28 +25,28 @@ const Signup = ({ handleSignup }) => {
       <input
         type="text"
         name="username"
-        placeholder="Enter Username"
+        placeholder="Username"
         value={formData.username}
         onChange={handleInput}
       />
       <input
         type="text"
         name="email"
-        placeholder="Enter email"
+        placeholder="Email"
         value={formData.email}
         onChange={handleInput}
       />
       <input
         type="text"
         name="password"
-        placeholder="Enter Password"
+        placeholder="Password"
         value={formData.password}
         onChange={handleInput}
       />
       <input
         type="text"
         name="password_confirmation"
-        placeholder="Confirm password"
+        placeholder="Confirm Password"
         value={formData.password_confirmation}
         onChange={handleInput}
       />
@@ -57,7 +57,7 @@ const Signup = ({ handleSignup }) => {
         value={formData.avatar_img}
         onChange={handleInput}
       />
-      <input type="submit" value="Create account" />
+      <input type="submit" value="Create Account" />
     </form>
   );
 };
