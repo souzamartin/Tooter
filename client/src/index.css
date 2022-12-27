@@ -17,3 +17,9 @@
     align-items: center;
 }
 
+a {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

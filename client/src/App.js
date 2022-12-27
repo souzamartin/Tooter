@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import Login from "./components/Login";
 import Header from "./components/Header";
 import TootContainer from "./components/TootContainer";
 import Signup from "./components/Signup";
 
 function App() {
+  const history = useHistory();
+
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -16,12 +18,27 @@ function App() {
     });
   }, []);
 
+  const handleSignup = (userData) => {
+    fetch("/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        setUser(data);
+        history.push("/");
+      });
+  };
+
   return (
     <div className="App">
       <Header user={user} setUser={setUser} />
       <Switch>
         <Route path="/signup">
-          <Signup />
+          <Signup handleSignup={handleSignup} />
         </Route>
 
         <Route exact path="/">
