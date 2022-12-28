@@ -23,9 +23,7 @@ const Profile = ({user, setUser}) => {
         e.preventDefault()
         fetch(`/users/${user.id}`, {
           method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: {"Content-Type": "application/json",},
           body: JSON.stringify(formData),
         })
           .then((r) => r.json())

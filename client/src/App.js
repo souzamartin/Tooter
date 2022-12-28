@@ -14,32 +14,17 @@ function App() {
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then(setUser);
+        r.json().then(setUser)
       }
-    });
-  }, []);
-
-  const handleSignup = (userData) => {
-    fetch("/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
     })
-      .then((r) => r.json())
-      .then((data) => {
-        setUser(data);
-        history.push("/");
-      });
-  };
+  }, [])
 
   return (
     <div className="App">
       <Header user={user} setUser={setUser} />
       <Switch>
         <Route path="/signup">
-          <Signup handleSignup={handleSignup} />
+          <Signup setUser={setUser} />
         </Route>
 
         <Route path="/profile">
@@ -51,7 +36,7 @@ function App() {
         </Route>
       </Switch>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,6 +1,9 @@
-import { useState } from "react";
+import {useState} from "react";
+import {useHistory} from "react-router-dom";
 
-const Signup = ({ handleSignup }) => {
+const Signup = ({setUser}) => {
+  const history = useHistory()
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -16,12 +19,22 @@ const Signup = ({ handleSignup }) => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleSignup(formData);
+  const handleSignup = (e) => {
+    e.preventDefault()
+    fetch("/users", {
+      method: "POST",
+      headers: {"Content-Type": "application/json",},
+      body: JSON.stringify(formData),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        setUser(data);
+        history.push("/");
+      });
   };
+
   return (
-    <form id="signup-form" onSubmit={handleSubmit}>
+    <form id="signup-form" onSubmit={handleSignup}>
       <input
         type="text"
         name="username"

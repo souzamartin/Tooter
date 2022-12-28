@@ -1,11 +1,10 @@
-# User.destroy_all 
-# Toot.destroy_all
-# Tag.destroy_all
-# TootTag.destroy_all
+User.destroy_all 
+Toot.destroy_all
+Tag.destroy_all
+TootTag.destroy_all
 
 # User Seed
 u1 = User.create(username: 'Adam', password: 'password', email: 'adam@flatiron.com', avatar_img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg/1200px-Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg')
-
 
 # Toot Seed
 toot1 = Toot.create(content: 'potato', likes: 10, user_id: u1.id)
@@ -24,7 +23,4 @@ TootTag.create(toot_id: toot2.id, tag_id: tag2.id)
 TootTag.create(toot_id: toot2.id, tag_id: tag3.id)
 TootTag.create(toot_id: toot3.id, tag_id: tag3.id)
 
-
-
-
-
+puts "Seeding complete"

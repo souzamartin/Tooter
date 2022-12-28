@@ -12,9 +12,9 @@ class UsersController < ApplicationController
     end
 
     def create 
-        user = User.create!(nuser_params)
-        session[:user_id] = user.id
-        render json: user, status: :created
+        new_user = User.create!(user_params)
+        session[:user_id] = new_user.id
+        render json: new_user, status: :created
     end
 
     def update
