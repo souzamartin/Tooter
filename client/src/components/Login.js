@@ -21,8 +21,14 @@ const Login = ({ setUser }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginData),
     })
-      .then((r) => r.json())
-      .then(setUser);
+      .then(r => {
+        if (r.ok) {
+          r.json()
+          .then(setUser)
+        } else {
+          console.error("OINK")
+        }
+      })
   };
 
   return (

@@ -11,9 +11,8 @@ class UsersController < ApplicationController
         end
     end
 
-
     def create 
-        user = User.create!(user_params)
+        user = User.create!(nuser_params)
         session[:user_id] = user.id
         render json: user, status: :created
     end
@@ -22,6 +21,12 @@ class UsersController < ApplicationController
         user = User.find(session[:user_id])
         user.update!(user_params)
         render json: user, status: :accepted
+    end
+
+    def destroy
+        user = User.find(session[:user_id])
+        user.destroy
+        head :no_content
     end
 
     private 

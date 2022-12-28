@@ -43,7 +43,7 @@ function App() {
         </Route>
 
         <Route path="/profile">
-          {!user ? <Login setUser={setUser} /> : <Profile user={user} />}
+          {!user ? <Login setUser={setUser} /> : <Profile user={user} setUser={setUser} />}
         </Route>
 
         <Route exact path="/">
