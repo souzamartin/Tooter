@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :toot_tags
     resources :tags
     resources :toots
-    resources :users, only: [:create, :show, :destroy]
+    resources :users, only: [:create, :update, :destroy]
 
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'

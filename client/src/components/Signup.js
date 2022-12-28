@@ -37,14 +37,14 @@ const Signup = ({ handleSignup }) => {
         onChange={handleInput}
       />
       <input
-        type="text"
+        type="password"
         name="password"
         placeholder="Password"
         value={formData.password}
         onChange={handleInput}
       />
       <input
-        type="text"
+        type="password"
         name="password_confirmation"
         placeholder="Confirm Password"
         value={formData.password_confirmation}
