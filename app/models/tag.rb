@@ -3,5 +3,4 @@ class Tag < ApplicationRecord
 
     has_many :toot_tags, dependent: :destroy
     has_many :toots, through: :toot_tags
-    
 end

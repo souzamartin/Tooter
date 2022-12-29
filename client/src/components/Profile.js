@@ -46,7 +46,7 @@ const Profile = ({user, setUser}) => {
     }
 
     return (
-        <div>
+        <div id="profile-container">
             <form id="profile-form" onSubmit={handleUpdate}>
                 <input
                     type="text"

@@ -1,5 +1,4 @@
 class TootsController < ApplicationController
-
     skip_before_action :authorize, only: [:index]
 
     def index 
@@ -11,5 +10,4 @@ class TootsController < ApplicationController
         toot.destroy 
         head :no_content
     end
-    
 end
