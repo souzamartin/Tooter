@@ -32,7 +32,7 @@ function App() {
         </Route>
 
         <Route exact path="/">
-          {!user ? <Login setUser={setUser} /> : <TootContainer />}
+          {!user ? <Login setUser={setUser} /> : <TootContainer user={user} />}
         </Route>
       </Switch>
     </div>

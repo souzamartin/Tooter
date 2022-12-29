@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # namespace :api do
     resources :toot_tags
     resources :tags
-    resources :toots, only: [:index]
+    resources :toots, only: [:index, :destroy]
     resources :users, only: [:create, :update, :destroy]
 
     post '/login', to: 'sessions#create'
