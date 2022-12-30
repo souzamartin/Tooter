@@ -2,7 +2,7 @@ class TootsController < ApplicationController
     skip_before_action :authorize, only: [:index]
 
     def index 
-        render json: Toot.all, status: :ok
+        render json: Toot.all.order(created_at: :desc), status: :ok
     end
 
     def destroy
