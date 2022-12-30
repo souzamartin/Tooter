@@ -22,13 +22,11 @@ const TootContainer = ({user}) => {
     setSearchText(e.target.value)
   }
 
-  // const filteredToots = toots.filter(toot => 
-  //   toot.toot_tags.map(tag => (tag.tag_label).includes(searchText))
-  // )
+  const filteredToots = toots.filter(toot => 
+    toot.tag_labels.toString().toLowerCase().includes(searchText.toLowerCase())
+  )
 
-  // console.log(filteredToots)
-
-  const renderedToots = toots.map(toot => {
+  const renderedToots = filteredToots.map(toot => {
     return (
       <Toot key={toot.id} toot={toot} user={user} deleteToot={deleteToot} />
     );

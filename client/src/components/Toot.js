@@ -4,7 +4,7 @@ const Toot = ({toot, user, deleteToot}) => {
     deleteToot(toot.id);
   };
 
-  const renderedTags = toot.toot_tags.map(tag => {return <span key={tag.id} className="tag">{tag.tag_label}</span>})
+  const renderedTags = toot.tag_labels.map((tag, index) => {return <span key={index} className="tag">{tag}</span>})
 
   return (
     <div id="toot-card">

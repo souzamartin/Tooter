@@ -5,4 +5,8 @@ class Toot < ApplicationRecord
   has_many :tags, through: :toot_tags
 
   belongs_to :user
+
+  def tag_labels
+    self.tags.map {|tag| tag.tag_text}
+  end
 end
