@@ -1,5 +1,5 @@
 class TootTagSerializer < ActiveModel::Serializer
-  attributes :tag_label
+  attributes :id, :tag_label
   # has_one :toot
   # has_one :tag
 end
