@@ -20,15 +20,13 @@ const Login = ({ setUser }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginData),
-    })
-      .then(r => {
-        if (r.ok) {
-          r.json()
-          .then(setUser)
-        } else {
-          console.error("OINK")
-        }
-      })
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then(setUser);
+      } else {
+        console.error("OINK");
+      }
+    });
   };
 
   return (
@@ -50,7 +48,9 @@ const Login = ({ setUser }) => {
         />
         <input type="submit" value="Log in" />
       </form>
-      <Link to="/signup">Create an account</Link>
+      <Link id="create_account" to="/signup">
+        Create an account
+      </Link>
     </div>
   );
 };
