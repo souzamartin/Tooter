@@ -4,7 +4,6 @@
   box-sizing: border-box;
   margin: 10;
 } 
-
 .App {
 
     display: flex;
@@ -174,32 +173,54 @@ li a{
 }
 
 #toot-container {
+
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+
 }
 
 #tag-search {
+    background: #fff;
+    height: 30px;
+    width: 500px;
+    border-radius: 30px;
+    padding: 10px 20px;
     display: flex;
     justify-content: center;
-    width: 40%;
-    border-radius: 5px;
-    margin-left: 10%;
+    align-items: center;
+    transition: 0.8s;
+
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+    -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+
+}
+@keyframes hoverShake {
+    0% {transform: skew(0deg,0deg);}
+    25% {transform: skew(5deg, 5deg);}
+    75% {transform: skew(-5deg, -5deg);}
+    100% {transform: skew(0deg,0deg);}
 }
 
-
 #toot-card {
-    display: flex;
+    background: #f2f2f2;
     flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
+    border-color: grey;
+    align-items: center;
+    display: flex;
+    height: 300px;
+    width: 300px;
     border-style: groove;
-    border-radius: 10px;
+    border-radius: 20px;
     border-color: grey;
     margin: 10px;
+    box-shadow: 0 0 100px 8px #d0d0d0;
 }
 
 .tag {
     background-color: aqua;
 }
+

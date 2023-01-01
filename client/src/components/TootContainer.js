@@ -39,6 +39,7 @@ const TootContainer = ({ user, tagSearchDisplay }) => {
           id="tag-search"
           type="text"
           placeholder="Search tags..."
+          style={{ animation: " hoverShake 0.15s linear 3" }}
           value={searchText}
           onChange={handleChange}
         />
