@@ -13,12 +13,23 @@ const Toot = ({ toot, user, deleteToot }) => {
 
   const timestamp = new Date(toot.created_at);
 
+  const handleLike = () => {
+    fetch(`/toots/${toot.id}/like`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((r) => r.json())
+      .then(window.location.reload(true));
+  };
+
   return (
     <div id="toot-card">
       <h3>{toot.user.username}</h3>
       <p>{toot.content}</p>
       {renderedTags}
-      <p>💕 {toot.likes}</p>
+      <p onClick={handleLike}>💕 {toot.likes}</p>
       {user.id === toot.user.id ? (
         <button onClick={handleDelete}>❌</button>
       ) : null}
