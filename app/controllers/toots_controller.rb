@@ -15,7 +15,7 @@ class TootsController < ApplicationController
     def increment_likes
         toot = Toot.find(params[:id])
         toot.update(likes: toot.likes + 1)
-        render json: toot
+        render json: toot, status: :accepted
     end
 
     private 
