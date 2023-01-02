@@ -377,14 +377,14 @@ li a{
     height: 200px;
     line-height: 200px;
     font-size: 4em;
-    /* font-family: sans-serif; */
-    /* font-weight: bold; */
+    font-family: sans-serif;
+    font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
 }
 
 .box .inner:first-child {
-    /* background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);; */
+    background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);;
     animation: lights 7s 800ms linear infinite;
     transform-origin: right;
     transform: perspective(100px) rotateY(-15deg);
