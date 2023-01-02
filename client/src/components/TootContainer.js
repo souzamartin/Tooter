@@ -1,9 +1,9 @@
 import Toot from "./Toot";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
-const TootContainer = ({user}) => {
-  const [toots, setToots] = useState([])
-  const [searchText, setSearchText] = useState("")
+const TootContainer = ({ user, tagSearchDisplay }) => {
+  const [toots, setToots] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   const getToots = () => {
     fetch("/toots")
@@ -17,16 +17,16 @@ const TootContainer = ({user}) => {
   const deleteToot = (tootId) => {
     fetch(`/toots/${tootId}`, { method: "DELETE" }).then(getToots);
   };
-  
+
   const handleChange = (e) => {
-    setSearchText(e.target.value)
-  }
+    setSearchText(e.target.value);
+  };
 
-  const filteredToots = toots.filter(toot => 
+  const filteredToots = toots.filter((toot) =>
     toot.tag_labels.toString().toLowerCase().includes(searchText.toLowerCase())
-  )
+  );
 
-  const renderedToots = filteredToots.map(toot => {
+  const renderedToots = filteredToots.map((toot) => {
     return (
       <Toot key={toot.id} toot={toot} user={user} deleteToot={deleteToot} />
     );
@@ -34,16 +34,20 @@ const TootContainer = ({user}) => {
 
   return (
     <div id="toot-container">
-      <input
-        id="tag-search"
-        type="text"
-        placeholder="Search tags..." 
-        value={searchText}
-        onChange={handleChange}
-      />
+      {tagSearchDisplay ? (
+        <input
+          id="tag-search"
+          type="text"
+          placeholder="Search tags..."
+          style={{ animation: " hoverShake 0.15s linear 3" }}
+          value={searchText}
+          onChange={handleChange}
+        />
+      ) : null}
+
       <div>{renderedToots}</div>
     </div>
-  )
+  );
 };
 
 export default TootContainer;
