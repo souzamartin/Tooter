@@ -1,9 +1,17 @@
 class TootsController < ApplicationController
     skip_before_action :authorize, only: [:index]
-    rescue_from ActiveRecord::RecordNotFound, with: :not_found_response
+
 
     def index 
         render json: Toot.all.order(created_at: :desc), status: :ok
+    end
+
+    def create 
+
+        user = User.find(session[:user_id])
+        new_toot = user.toots.create!(toot_params)
+        render json: new_toot, status: :created
+        
     end
 
     def destroy
@@ -18,9 +26,11 @@ class TootsController < ApplicationController
         render json: toot, status: :accepted
     end
 
+    
+
     private 
 
-    def not_found_response
-        render json: {error: "Toots not found"}, status: :not_found
+    def toot_params 
+        params.permit(:content)
     end
 end

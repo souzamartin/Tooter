@@ -6,6 +6,7 @@ import TootContainer from "./components/TootContainer";
 import Profile from "./components/Profile";
 import About from "./components/About";
 import Title from "./components/Title";
+import NewToot from "./components/NewToot";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -31,6 +32,11 @@ function App() {
         />
       ) : null}
       <Switch>
+
+        <Route path='/newtoot'>
+          <NewToot />
+        </Route>
+        
         <Route path="/profile">
           {!user ? (
             <Login setUser={setUser} />
