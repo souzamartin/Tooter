@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Header from "./components/Header";
 import TootContainer from "./components/TootContainer";
-import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import About from "./components/About";
 import Title from "./components/Title";
 
 function App() {
-  const history = useHistory();
-
   const [user, setUser] = useState(null);
   const [tagSearchDisplay, setTagSearchDisplay] = useState(false);
 
@@ -24,19 +21,16 @@ function App() {
 
   return (
     <div className="App">
-      <Title />
-      {user ?
+      {!user ? <Title /> : null}
+      {user ? (
         <Header
           user={user}
           setUser={setUser}
           setTagSearchDisplay={setTagSearchDisplay}
           tagSearchDisplay={tagSearchDisplay}
-        /> : null}
+        />
+      ) : null}
       <Switch>
-        <Route path="/signup">
-          <Signup setUser={setUser} />
-        </Route>
-
         <Route path="/profile">
           {!user ? (
             <Login setUser={setUser} />
@@ -45,9 +39,12 @@ function App() {
           )}
         </Route>
 
-        <Route path="/about">
-          <About />
-        </Route>
+        {user ? (
+          <Route path="/about">
+            <About />
+          </Route>
+        ) : null}
+
         <Route exact path="/">
           {!user ? (
             <Login setUser={setUser} />

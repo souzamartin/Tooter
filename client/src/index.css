@@ -282,7 +282,7 @@ li a{
 }
 
 .main input {
-    width: 60%;
+  width: 60%;
 	height: 20px;
 	background: #e0dede;
 	justify-content: center;
@@ -377,22 +377,22 @@ li a{
     height: 200px;
     line-height: 200px;
     font-size: 4em;
-    font-family: sans-serif;
-    font-weight: bold;
+    /* font-family: sans-serif; */
+    /* font-weight: bold; */
     white-space: nowrap;
     overflow: hidden;
 }
 
 .box .inner:first-child {
-    background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);;
-    animation: lights 5s 800ms linear infinite;
+    /* background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);; */
+    animation: lights 7s 800ms linear infinite;
     transform-origin: right;
     transform: perspective(100px) rotateY(-15deg);
   }
   
   .box .inner:last-child {
-    background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);;
-    animation: lights 5s 800ms linear infinite;
+    background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    animation: lights 7s 100ms linear infinite;
     transform-origin: left;
     transform: perspective(100px) rotateY(15deg);
   }
@@ -420,4 +420,11 @@ li a{
 body {
     
     background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
+
+}
+
+.about {
+
+  color: white
+
 }

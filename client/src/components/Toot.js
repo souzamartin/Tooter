@@ -1,12 +1,17 @@
-const Toot = ({toot, user, deleteToot}) => {
-
+const Toot = ({ toot, user, deleteToot }) => {
   const handleDelete = () => {
     deleteToot(toot.id);
   };
 
-  const renderedTags = toot.tag_labels.map((tag, index) => {return <span key={index} className="tag">{tag}</span>})
+  const renderedTags = toot.tag_labels.map((tag, index) => {
+    return (
+      <span key={index} className="tag">
+        {tag}
+      </span>
+    );
+  });
 
-  const timestamp = new Date(toot.created_at)
+  const timestamp = new Date(toot.created_at);
 
   return (
     <div id="toot-card">
@@ -17,7 +22,9 @@ const Toot = ({toot, user, deleteToot}) => {
       {user.id === toot.user.id ? (
         <button onClick={handleDelete}>❌</button>
       ) : null}
-      <span className="timestamp">{timestamp.toLocaleString('en-us', {timeZone: 'EST'})}</span>
+      <span className="timestamp">
+        {timestamp.toLocaleString("en-us", { timeZone: "EST" })}
+      </span>
     </div>
   );
 };
