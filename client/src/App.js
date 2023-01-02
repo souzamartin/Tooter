@@ -4,7 +4,6 @@ import Login from "./components/Login";
 import Header from "./components/Header";
 import TootContainer from "./components/TootContainer";
 import Profile from "./components/Profile";
-import About from "./components/About";
 import Title from "./components/Title";
 import NewToot from "./components/NewToot";
 
@@ -32,11 +31,10 @@ function App() {
         />
       ) : null}
       <Switch>
-
-        <Route path='/newtoot'>
+        <Route path="/newtoot">
           <NewToot />
         </Route>
-        
+
         <Route path="/profile">
           {!user ? (
             <Login setUser={setUser} />
@@ -44,12 +42,6 @@ function App() {
             <Profile user={user} setUser={setUser} />
           )}
         </Route>
-
-        {user ? (
-          <Route path="/about">
-            <About />
-          </Route>
-        ) : null}
 
         <Route exact path="/">
           {!user ? (

@@ -22,11 +22,6 @@ const Header = ({ user, setUser, setTagSearchDisplay, tagSearchDisplay }) => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/about" className="active3">
-                About
-              </NavLink>
-            </li>
-            <li>
               <NavLink to="/profile" className="active2">
                 Profile
               </NavLink>
