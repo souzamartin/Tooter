@@ -6,6 +6,7 @@ import TootContainer from "./components/TootContainer";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import About from "./components/About";
+import Title from "./components/Title";
 
 function App() {
   const history = useHistory();
@@ -23,12 +24,14 @@ function App() {
 
   return (
     <div className="App">
-      <Header
-        user={user}
-        setUser={setUser}
-        setTagSearchDisplay={setTagSearchDisplay}
-        tagSearchDisplay={tagSearchDisplay}
-      />
+      <Title />
+      {user ?
+        <Header
+          user={user}
+          setUser={setUser}
+          setTagSearchDisplay={setTagSearchDisplay}
+          tagSearchDisplay={tagSearchDisplay}
+        /> : null}
       <Switch>
         <Route path="/signup">
           <Signup setUser={setUser} />
