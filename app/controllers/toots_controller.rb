@@ -7,11 +7,9 @@ class TootsController < ApplicationController
     end
 
     def create 
-
         user = User.find(session[:user_id])
         new_toot = user.toots.create!(toot_params)
         render json: new_toot, status: :created
-        
     end
 
     def destroy
@@ -31,6 +29,6 @@ class TootsController < ApplicationController
     private 
 
     def toot_params 
-        params.permit(:content)
+        params.permit(:content, :likes)
     end
 end

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const NewToot = () => {
+const NewToot = ({setLatestToot}) => {
   const history = useHistory();
   const [newToot, setNewToot] = useState({
     content: "",
+    likes: 0
   });
 
   const handleSubmit = (e) => {
@@ -14,8 +15,10 @@ const NewToot = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newToot),
-    });
-    history.push("/");
+    })
+    .then(r => r.json())
+    .then(setLatestToot)
+    history.push("/add-tags");
   };
 
   const handleChange = (e) => {
@@ -26,14 +29,14 @@ const NewToot = () => {
   };
 
   return (
-    <div>
+    <div id="new-toot">
       <form onSubmit={handleSubmit}>
         <textarea
           name="content"
           placeholder="Write a toot..."
           value={newToot.content}
           onChange={handleChange}
-        ></textarea>
+        />
         <input type="submit" />
       </form>
     </div>

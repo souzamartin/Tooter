@@ -16,6 +16,11 @@ const Header = ({ user, setUser, setTagSearchDisplay, tagSearchDisplay }) => {
       <div className="navigation">
         <nav>
           <ul className="nav-type">
+          <li>
+              <NavLink className="active" to="/newtoot">
+                Toot!
+              </NavLink>
+            </li>
             <li>
               <NavLink className="active" to="/">
                 Feed

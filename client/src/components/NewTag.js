@@ -1,16 +1,18 @@
 import { useState } from "react";
 
 const NewTag = () => {
-  const [newTag, setNewTag] = useState({
-    tag_text: "",
-  });
+  const [newTag, setNewTag] = useState("")
+  const [tags, setTags] = useState([])
 
   const handleChange = (e) => {
-    setNewTag({
-      ...newTag,
-      [e.target.name]: e.target.value,
-    });
+    setNewTag(e.target.value)
   };
+
+  const handleAddTag = (e) => {
+    e.preventDefault()
+    setTags([...tags, newTag])
+    setNewTag("")
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ const NewTag = () => {
     fetch("/tags", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newTag),
+      body: JSON.stringify(tags),
     })
         .then(r => r.json())
       // put it in state
@@ -26,15 +28,20 @@ const NewTag = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleAddTag}>
         <input
           type="text"
-          name="tag_text"
-          placeholder="Create a new tag"
-          value={newTag.tag_text}
+          name="newTag"
+          placeholder="Add a tag..."
+          value={newTag}
           onChange={handleChange}
         />
-        <input type="submit" />
+        <input type="submit" value="Add Tag" />
+      </form>
+
+      <form>
+        <p id="taglist">{tags.map(tag => <span key={tag}>#{tag} </span>)}</p>
+        <input type="submit" onSubmit={handleSubmit}/>
       </form>
     </div>
   );

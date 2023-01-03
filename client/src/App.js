@@ -6,10 +6,12 @@ import TootContainer from "./components/TootContainer";
 import Profile from "./components/Profile";
 import Title from "./components/Title";
 import NewToot from "./components/NewToot";
+import NewTag from "./components/NewTag";
 
 function App() {
   const [user, setUser] = useState(null);
   const [tagSearchDisplay, setTagSearchDisplay] = useState(false);
+  const [latestToot, setLatestToot] = useState(null)
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -32,7 +34,11 @@ function App() {
       ) : null}
       <Switch>
         <Route path="/newtoot">
-          <NewToot />
+          <NewToot setLatestToot={setLatestToot} />
+        </Route>
+
+        <Route path="/add-tags">
+          <NewTag />
         </Route>
 
         <Route path="/profile">

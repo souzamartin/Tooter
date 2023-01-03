@@ -2,7 +2,6 @@ class TagsController < ApplicationController
 
     def create 
         render json: Tag.create!(tag_params), status: :created
-
     end
     
     private 
