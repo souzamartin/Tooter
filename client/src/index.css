@@ -207,13 +207,13 @@ li a{
     100% {transform: skew(0deg,0deg);}
 }
 
-#toot-card {
+.toot-card {
     background: #f2f2f2;
     flex-direction: column;
     border-color: grey;
     align-items: center;
     display: flex;
-    height: 300px;
+    height: auto;
     width: 300px;
     border-style: groove;
     border-radius: 20px;
@@ -222,10 +222,17 @@ li a{
     box-shadow: 0 0 100px 8px #d0d0d0;
 }
 
+.tag-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .tag {
     background-color: aqua;
     border-radius: 10px;
     padding: 5px;
+    margin: 3px;
 }
 
 #taglist {

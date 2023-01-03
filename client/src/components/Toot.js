@@ -25,10 +25,10 @@ const Toot = ({ toot, user, deleteToot }) => {
   };
 
   return (
-    <div id="toot-card">
+    <div className="toot-card">
       <h3>{toot.user.username}</h3>
       <p>{toot.content}</p>
-      {renderedTags}
+      <div className="tag-list">{renderedTags}</div>
       <p onClick={handleLike}>💕 {toot.likes}</p>
       {user.id === toot.user.id ? (
         <button onClick={handleDelete}>❌</button>
