@@ -23,6 +23,8 @@ const NewTag = () => {
       body: JSON.stringify(tags),
     })
         .then(r => r.json())
+        .then(console.log)
+        setTags([])
       // put it in state
   };
 
@@ -39,9 +41,9 @@ const NewTag = () => {
         <input type="submit" value="Add Tag" />
       </form>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <p id="taglist">{tags.map(tag => <span key={tag}>#{tag} </span>)}</p>
-        <input type="submit" onSubmit={handleSubmit}/>
+        <input type="submit" />
       </form>
     </div>
   );

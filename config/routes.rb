@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # namespace :api do
     # resources :toot_tags
-    resources :tags, only: [:index, :show, :create]
+    resources :tags, only: [:create]
     resources :toots, only: [:index, :create, :destroy]
     resources :users, only: [:create, :update, :destroy]
 
