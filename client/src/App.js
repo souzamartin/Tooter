@@ -38,7 +38,7 @@ function App() {
         </Route>
 
         <Route path="/add-tags">
-          <NewTag />
+          <NewTag latestToot={latestToot} />
         </Route>
 
         <Route path="/profile">

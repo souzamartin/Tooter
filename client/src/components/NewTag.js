@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-const NewTag = () => {
+const NewTag = ({latestToot}) => {
+  const history = useHistory()
+
   const [newTag, setNewTag] = useState("")
   const [tags, setTags] = useState([])
 
@@ -23,10 +26,20 @@ const NewTag = () => {
       body: JSON.stringify(tags),
     })
         .then(r => r.json())
-        .then(console.log)
+        .then(applyTags)
         setTags([])
-      // put it in state
   };
+
+  const applyTags = (addedTags) => {
+    fetch("/toot_tags", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(
+        {tags: addedTags, toot_id: latestToot.id}
+      )
+    })
+    history.push('/')
+  }
 
   return (
     <div>
