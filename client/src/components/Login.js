@@ -1,12 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 const Login = ({ setUser }) => {
-  //sign up
-
+  
   const history = useHistory();
 
+  const [loginErrors, setLoginErrors] = useState(null)
+
+  if (loginErrors) {
+    window.alert(loginErrors.error)
+  }
+
+  // Signup
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -55,11 +60,12 @@ const Login = ({ setUser }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginData),
-    }).then((r) => {
+    })
+    .then(r => {
       if (r.ok) {
         r.json().then(setUser);
       } else {
-        console.error("OINK");
+        r.json().then(setLoginErrors);
       }
     });
   };
