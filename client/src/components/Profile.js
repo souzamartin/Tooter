@@ -12,6 +12,8 @@ const Profile = ({ user, setUser }) => {
     avatar_img: user.avatar_img,
   });
 
+  const [errors, setErrors] = useState(null)
+
   const handleInput = (e) => {
     setFormData({
       ...formData,
@@ -26,10 +28,13 @@ const Profile = ({ user, setUser }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
-      .then((r) => r.json())
-      .then((data) => {
-        setUser(data);
-        history.push("/");
+      .then(r => {
+        if (r.ok) {
+          r.json().then(setUser)
+          history.push("/")
+        } else {
+          r.json().then(setErrors)
+        }
       });
   };
 
@@ -46,6 +51,15 @@ const Profile = ({ user, setUser }) => {
 
   return (
     <div id="profile-container">
+
+      {errors ?
+            <div className="error-box">
+              <p className="error-list">
+                {errors.errors.map((e, index) => <li key={index}>{e}</li>)}
+              </p>
+            </div>
+          : null}
+
       <form id="profile-form" onSubmit={handleUpdate}>
         <input
           type="text"

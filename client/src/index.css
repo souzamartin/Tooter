@@ -451,4 +451,5 @@ body {
   border-style: double;
   border-radius: 10px;
   border-color: red;
+  padding: 5px;
 }
