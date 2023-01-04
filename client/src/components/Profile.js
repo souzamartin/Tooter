@@ -34,14 +34,14 @@ const Profile = ({ user, setUser }) => {
   };
 
   const handleDelete = () => {
-    fetch(`/users/${user.id}`, { method: "DELETE" }).then((r) => {
-      if (r.ok) {
-        setUser(null);
-        history.push("/");
-      } else {
-        console.error("OINK");
-      }
-    });
+    if (window.confirm("Are you sure you want to delete your account?")) {
+      fetch(`/users/${user.id}`, { method: "DELETE" }).then(r => {
+        if (r.ok) {
+          setUser(null);
+          history.push("/");
+        }
+      });
+    }
   };
 
   return (
