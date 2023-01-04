@@ -7,13 +7,14 @@ const TootContainer = ({ user, tagSearchDisplay }) => {
 
   const getToots = () => {
     fetch("/toots")
-      .then((r) => r.json())
+      .then(r => r.json())
       .then(setToots);
   };
 
   useEffect(() => {
     getToots();
   }, []);
+  
   const deleteToot = (tootId) => {
     fetch(`/toots/${tootId}`, { method: "DELETE" }).then(getToots);
   };

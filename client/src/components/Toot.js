@@ -10,7 +10,7 @@ const Toot = ({ toot, user, deleteToot }) => {
   const renderedTags = toot.tag_labels.map((tag, index) => {
     return (
       <span key={index} className="tag">
-        {tag}
+        #{tag}
       </span>
     );
   });

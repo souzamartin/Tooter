@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = ({ user, setUser, setTagSearchDisplay, tagSearchDisplay }) => {
   const handleLogout = () => {
-    fetch("/logout", { method: "DELETE" }).then((r) => {
+    fetch("/logout", { method: "DELETE" }).then(r => {
       if (r.ok) setUser(null);
     });
   };
