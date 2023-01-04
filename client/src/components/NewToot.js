@@ -3,6 +3,9 @@ import { useHistory } from "react-router-dom";
 
 const NewToot = ({setLatestToot}) => {
   const history = useHistory();
+
+  const [errors, setErrors] = useState(null)
+
   const [newToot, setNewToot] = useState({
     content: "",
     likes: 0
@@ -16,10 +19,15 @@ const NewToot = ({setLatestToot}) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newToot),
     })
-    .then(r => r.json())
-    .then(setLatestToot)
-    history.push("/add-tags");
-  };
+    .then(r => {
+      if (r.ok) {
+        r.json().then(setLatestToot)
+        history.push("/add-tags")
+      } else {
+        r.json().then(setErrors)
+      }
+    })
+  }
 
   const handleChange = (e) => {
     setNewToot({
@@ -29,8 +37,17 @@ const NewToot = ({setLatestToot}) => {
   };
 
   return (
-    <div id="new-toot">
-      <form onSubmit={handleSubmit}>
+    <div>
+
+      {errors ?
+        <div className="error-box">
+          <p className="error-list">
+            {errors.errors.map((e, index) => <li key={index}>{e}</li>)}
+          </p>
+        </div>
+      : null}
+
+      <form id="new-toot" onSubmit={handleSubmit}>
         <textarea
           name="content"
           placeholder="Write a toot..."
