@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 const Toot = ({ toot, user, deleteToot }) => {
+  const [likes, setLikes] = useState(toot.likes);
+
   const handleDelete = () => {
     deleteToot(toot.id);
   };
@@ -21,7 +25,9 @@ const Toot = ({ toot, user, deleteToot }) => {
       },
     })
       .then((r) => r.json())
-      .then(window.location.reload(true));
+      .then((data) => {
+        setLikes(data.likes);
+      });
   };
 
   return (
@@ -29,7 +35,7 @@ const Toot = ({ toot, user, deleteToot }) => {
       <h3>{toot.user.username}</h3>
       <p>{toot.content}</p>
       <div className="tag-list">{renderedTags}</div>
-      <p onClick={handleLike}>💕 {toot.likes}</p>
+      <p onClick={handleLike}>💕 {likes}</p>
       {user.id === toot.user.id ? (
         <button onClick={handleDelete}>❌</button>
       ) : null}
