@@ -7,9 +7,9 @@ const Login = ({ setUser }) => {
   const [signupErrors, setSignupErrors] = useState(null)
   const [loginErrors, setLoginErrors] = useState(null)
 
-  if (loginErrors) {
-    window.alert(loginErrors.error)
-  }
+  // if (loginErrors) {
+  //   window.alert(loginErrors.error)
+  // }
 
   // Signup
   const [formData, setFormData] = useState({
@@ -138,6 +138,15 @@ const Login = ({ setUser }) => {
           <label htmlFor="chk" aria-hidden="true">
             Log In
           </label>
+
+          {loginErrors ?
+            <div className="error-box">
+              <p className="error-list">
+                <li>{loginErrors.error}</li>
+              </p>
+            </div>
+          : null}
+          
           <input
             type="text"
             name="username"

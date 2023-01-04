@@ -142,21 +142,19 @@ li a{
     position: absolute;
     left: 88%;
     top: 30%;
-
 }
 
-#login-form,
-#signup-form,
 #profile-form {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 5px;
+    width: 300px;
     padding: 10px;
 }
 
 #create_account {
-
     display: flex;
     justify-content: center;
 }
@@ -165,7 +163,7 @@ li a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    width: 70%;
     border-style: solid;
     border-radius: 10px;
     border-color: grey;
@@ -173,12 +171,10 @@ li a{
 }
 
 #toot-container {
-
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-
 }
 
 #tag-search {
@@ -196,8 +192,8 @@ li a{
     -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.2),
     inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
-
 }
+
 @keyframes hoverShake {
     0% {transform: skew(0deg,0deg);}
     25% {transform: skew(5deg, 5deg);}
