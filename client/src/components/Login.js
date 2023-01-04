@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const Login = ({ setUser }) => {
-  
   const history = useHistory();
 
+  const [signupErrors, setSignupErrors] = useState(null)
   const [loginErrors, setLoginErrors] = useState(null)
 
   if (loginErrors) {
@@ -34,10 +34,13 @@ const Login = ({ setUser }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
-      .then((r) => r.json())
-      .then((data) => {
-        setUser(data);
-        history.push("/");
+      .then(r => {
+        if (r.ok) {
+          r.json().then(setUser)
+          history.push("/")
+        } else {
+          r.json().then(setSignupErrors)
+        }
       });
   };
 
@@ -77,8 +80,17 @@ const Login = ({ setUser }) => {
       <div className="signup">
         <form onSubmit={handleSignup}>
           <label htmlFor="chk" aria-hidden="true">
-            Sign up
+            Sign Up!
           </label>
+          
+          {signupErrors ?
+            <div className="error-box">
+              <p className="error-list">
+                {signupErrors.errors.map((e, index) => <li key={index}>{e}</li>)}
+              </p>
+            </div>
+          : null}
+
           <input
             type="text"
             name="username"
@@ -117,14 +129,14 @@ const Login = ({ setUser }) => {
             value={formData.avatar_img}
             onChange={handleInput}
           />
-          <button type="submit">Sign up</button>
+          <button type="submit">Create Account</button>
         </form>
       </div>
 
       <div className="login">
         <form onSubmit={handleSubmit}>
           <label htmlFor="chk" aria-hidden="true">
-            Login
+            Log In
           </label>
           <input
             type="text"

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
     end
 
     def invalid_response(invalid)
-        render json: {errors: invalid.record.errors}, status: :unprocessable_entity
+        render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
     end
 
     def not_found_response(error)
