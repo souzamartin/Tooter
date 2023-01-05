@@ -4,9 +4,10 @@ const Title = () => {
       <div className="inner">
         <span>Tooter🎺 </span>
       </div>
-      <div className="inner">
+      {/* <div className="inner">
         <span>Tooter🎺 </span>
-      </div>
+      </div> */}
+      <h2 className="subtitle">Your ✨takes✨ in 25 characters or less!</h2>
     </div>
   );
 };

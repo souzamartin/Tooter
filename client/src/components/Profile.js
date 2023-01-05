@@ -96,9 +96,9 @@ const Profile = ({ user, setUser }) => {
           value={formData.avatar_img}
           onChange={handleInput}
         />
-        <input type="submit" value="Update Account" />
+        <input className="fancy-button" type="submit" value="Update Account" />
       </form>
-      <button id="delete-account" onClick={handleDelete}>
+      <button className="fancy-button" id="delete-account" onClick={handleDelete}>
         Delete Account
       </button>
     </div>

@@ -49,12 +49,13 @@ const NewToot = ({setLatestToot}) => {
 
       <form id="new-toot" onSubmit={handleSubmit}>
         <textarea
+          id="new-toot-textbox"
           name="content"
           placeholder="Write a toot..."
           value={newToot.content}
           onChange={handleChange}
         />
-        <input type="submit" />
+        <input className="fancy-button" type="submit" />
       </form>
     </div>
   );

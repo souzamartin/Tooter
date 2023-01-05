@@ -7,10 +7,6 @@ const Login = ({ setUser }) => {
   const [signupErrors, setSignupErrors] = useState(null)
   const [loginErrors, setLoginErrors] = useState(null)
 
-  // if (loginErrors) {
-  //   window.alert(loginErrors.error)
-  // }
-
   // Signup
   const [formData, setFormData] = useState({
     username: "",
@@ -79,7 +75,7 @@ const Login = ({ setUser }) => {
 
       <div className="signup">
         <form onSubmit={handleSignup}>
-          <label htmlFor="chk" aria-hidden="true">
+          <label className="subtitle" htmlFor="chk" aria-hidden="true">
             Sign Up!
           </label>
           
@@ -163,7 +159,7 @@ const Login = ({ setUser }) => {
             value={loginData.password}
             onChange={handleLoginInput}
           />
-          <button type="submit">Login</button>
+          <button type="submit">Log In</button>
         </form>
       </div>
     </div>

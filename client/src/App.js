@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      {!user ? <Title /> : null}
+      <Title />
       {user ? (
         <Header
           user={user}

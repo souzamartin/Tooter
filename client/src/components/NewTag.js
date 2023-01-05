@@ -45,18 +45,19 @@ const NewTag = ({latestToot}) => {
     <div>
       <form onSubmit={handleAddTag}>
         <input
+          id="new-tag-field"
           type="text"
           name="newTag"
           placeholder="Add a tag..."
           value={newTag}
           onChange={handleChange}
         />
-        <input type="submit" value="Add Tag" />
+        <input className="fancy-button" type="submit" value="Add Tag" />
       </form>
 
       <form onSubmit={handleSubmit}>
         <p id="taglist">{tags.map(tag => <span key={tag}>#{tag} </span>)}</p>
-        <input type="submit" />
+        <input className="fancy-button" type="submit" />
       </form>
     </div>
   );
