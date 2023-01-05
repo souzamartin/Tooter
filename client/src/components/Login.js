@@ -13,7 +13,7 @@ const Login = ({ setUser }) => {
     email: "",
     password: "",
     password_confirmation: "",
-    avatar_img: "",
+    // avatar_img: "",
   });
 
   const handleInput = (e) => {
@@ -127,13 +127,13 @@ const Login = ({ setUser }) => {
               value={formData.password_confirmation}
               onChange={handleInput}
             />
-            <input
+            {/* <input
               type="text"
               name="avatar_img"
               placeholder="Avatar"
               value={formData.avatar_img}
               onChange={handleInput}
-            />
+            /> */}
             <button type="submit">Create Account</button>
           </form>
         </div>

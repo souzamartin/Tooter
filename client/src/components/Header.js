@@ -42,7 +42,6 @@ const Header = ({ user, setUser, setTagSearchDisplay, tagSearchDisplay }) => {
                 </a>
               ) : null}
             </li>
-            <div className="line"></div>
             <li>
               <a>
                 <i className="fa fa-search" onClick={handleSearch}></i>

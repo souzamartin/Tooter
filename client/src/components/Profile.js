@@ -89,13 +89,13 @@ const Profile = ({ user, setUser }) => {
           value={formData.password_confirmation}
           onChange={handleInput}
         />
-        <input
+        {/* <input
           type="text"
           name="avatar_img"
           placeholder="Avatar"
           value={formData.avatar_img}
           onChange={handleInput}
-        />
+        /> */}
         <input className="fancy-button" type="submit" value="Update Account" />
       </form>
       <button className="fancy-button" id="delete-account" onClick={handleDelete}>

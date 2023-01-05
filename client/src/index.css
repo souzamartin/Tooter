@@ -209,7 +209,7 @@ li a{
   border-color: grey;
   align-items: center;
   height: auto;
-  width: 300px;
+  width: 400px;
   border-style: groove;
   border-radius: 30px;
   border-color: rgb(68, 0, 93);
@@ -487,28 +487,40 @@ li a{
   animation: lights 7s 800ms linear infinite;
 }
 
+.sub-subtitle {
+  font-family: sans-serif;
+  background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);;
+  animation: lights 7s 800ms linear infinite;
+}
+
 body {
   background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
 }
 
-#new-toot {
+#new-toot,
+#new-tag {
   display: flex;
   flex-direction: column;
-  /* width: 300px; */
   row-gap: 10px;
 }
 
 #new-toot-textbox,
 #new-tag-field {
   border-radius: 5px;
-  margin-top: 20px;
+  width: 250px;
 }
 
 #taglist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 250px;
+  gap: 5px;
   border-style: dashed;
   border-radius: 10px;
   border-color: #07c44c;
   color: #04f450;
+  font-family: sans-serif;
   padding: 5px;
 }
 

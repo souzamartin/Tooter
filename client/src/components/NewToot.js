@@ -38,7 +38,8 @@ const NewToot = ({setLatestToot}) => {
 
   return (
     <div>
-
+      <p className="sub-subtitle">Let's hear it!</p>
+      
       {errors ?
         <div className="error-box">
           <p className="error-list">
