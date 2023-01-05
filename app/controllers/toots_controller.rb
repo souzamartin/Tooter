@@ -1,7 +1,6 @@
 class TootsController < ApplicationController
     skip_before_action :authorize, only: [:index]
 
-
     def index 
         render json: Toot.all.order(created_at: :desc), status: :ok
     end
@@ -24,10 +23,7 @@ class TootsController < ApplicationController
         render json: toot, status: :accepted
     end
 
-    
-
     private 
-
     def toot_params 
         params.permit(:content, :likes)
     end
