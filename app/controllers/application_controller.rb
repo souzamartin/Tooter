@@ -12,11 +12,11 @@ class ApplicationController < ActionController::API
         return render json: {error: "Unauthorized"}, status: :unauthorized unless session.include? :user_id
     end
 
-    def invalid_response(invalid)
-        render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
+    def invalid_response(exception)
+        render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
     end
 
-    def not_found_response(error)
-        render json: {errors: {error.model => "Not found"}}, status: :not_found
+    def not_found_response(exception)
+        render json: {errors: {exception.model => "Not found"}}, status: :not_found
     end
 end
