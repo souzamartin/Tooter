@@ -225,6 +225,7 @@ li a{
 
 .toot-username {
   align-self: flex-start;
+  cursor: pointer;
 }
 
 .toot-tags {

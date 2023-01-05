@@ -2,8 +2,9 @@ import Toot from "./Toot";
 import { useEffect, useState } from "react";
 
 const TootContainer = ({ user, tagSearchDisplay }) => {
-  const [toots, setToots] = useState([]);
-  const [searchText, setSearchText] = useState("");
+  const [toots, setToots] = useState([])
+  const [searchText, setSearchText] = useState("")
+  const [viewUser, setViewUser] = useState("")
 
   const getToots = () => {
     fetch("/toots")
@@ -12,7 +13,8 @@ const TootContainer = ({ user, tagSearchDisplay }) => {
   };
 
   useEffect(() => {
-    getToots();
+    getToots()
+    setViewUser("")
   }, []);
   
   const deleteToot = (tootId) => {
@@ -23,19 +25,29 @@ const TootContainer = ({ user, tagSearchDisplay }) => {
     setSearchText(e.target.value);
   };
 
-  const filteredToots = toots.filter((toot) =>
+  const filteredToots = toots.filter(toot =>
     toot.tag_labels.toString().toLowerCase().includes(searchText.toLowerCase())
   );
 
-  const renderedToots = filteredToots.map((toot) => {
+  const viewUsersToots = filteredToots.filter(toot =>
+    toot.user.username.includes(viewUser)
+  )
+
+  const renderedToots = viewUsersToots.map(toot => {
     return (
-      <Toot key={toot.id} toot={toot} user={user} deleteToot={deleteToot} />
+      <Toot
+        key={toot.id}
+        toot={toot}
+        user={user}
+        deleteToot={deleteToot}
+        setViewUser={setViewUser}
+      />
     );
   });
 
   return (
     <div id="toot-container">
-      {tagSearchDisplay ? (
+      {tagSearchDisplay ?
         <input
           id="tag-search"
           type="text"
@@ -44,7 +56,16 @@ const TootContainer = ({ user, tagSearchDisplay }) => {
           value={searchText}
           onChange={handleChange}
         />
-      ) : null}
+      : null}
+
+      {viewUser !== "" ?
+        <button
+          className="fancy-button"
+          onClick={() => setViewUser("")}
+        >
+          Show All Toots
+        </button>
+      : null}
 
       <div>{renderedToots}</div>
     </div>

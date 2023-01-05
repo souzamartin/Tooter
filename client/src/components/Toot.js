@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Toot = ({ toot, user, deleteToot }) => {
+const Toot = ({ toot, user, deleteToot, setViewUser }) => {
   const [likes, setLikes] = useState(toot.likes);
 
   const handleDelete = () => {
@@ -32,7 +32,12 @@ const Toot = ({ toot, user, deleteToot }) => {
 
   return (
     <div className="toot-card">
-      <h3 className="toot-username">{toot.user.username}</h3>
+      <h3
+        className="toot-username"
+        onClick={() => setViewUser(toot.user.username)}
+        >
+          {toot.user.username}
+        </h3>
       <p>{toot.content}</p>
       <div className="toot-tags">{renderedTags}</div>
       <div className="toot-buttons">
