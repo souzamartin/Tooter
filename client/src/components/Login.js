@@ -70,99 +70,101 @@ const Login = ({ setUser }) => {
   };
 
   return (
-    <div className="main">
-      <input type="checkbox" id="chk" aria-hidden="true" />
+    <>
+      {signupErrors ?
+        <div className="error-box">
+          <p className="error-list">
+            {signupErrors.errors.map((e, index) => <li key={index}>{e}</li>)}
+          </p>
+        </div>
+      : null}
 
-      <div className="signup">
-        <form onSubmit={handleSignup}>
-          <label className="subtitle" htmlFor="chk" aria-hidden="true">
-            Sign Up!
-          </label>
-          
-          {signupErrors ?
-            <div className="error-box">
-              <p className="error-list">
-                {signupErrors.errors.map((e, index) => <li key={index}>{e}</li>)}
-              </p>
-            </div>
-          : null}
+      {loginErrors ?
+        <div className="error-box">
+          <p className="error-list">
+            <li>{loginErrors.error}</li>
+          </p>
+        </div>
+      : null}
 
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            required=""
-            value={formData.username}
-            onChange={handleInput}
-          />
-          <input
-            type="text"
-            name="email"
-            placeholder="Email"
-            required=""
-            value={formData.email}
-            onChange={handleInput}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required=""
-            value={formData.password}
-            onChange={handleInput}
-          />
-          <input
-            type="password"
-            name="password_confirmation"
-            placeholder="Confirm Password"
-            value={formData.password_confirmation}
-            onChange={handleInput}
-          />
-          <input
-            type="text"
-            name="avatar_img"
-            placeholder="Avatar"
-            value={formData.avatar_img}
-            onChange={handleInput}
-          />
-          <button type="submit">Create Account</button>
-        </form>
+      <div className="main">
+        <input type="checkbox" id="chk" aria-hidden="true" />
+
+        <div className="signup">
+          <form onSubmit={handleSignup}>
+            <label className="subtitle" htmlFor="chk" aria-hidden="true">
+              Sign Up!
+            </label>
+
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              required=""
+              value={formData.username}
+              onChange={handleInput}
+            />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              required=""
+              value={formData.email}
+              onChange={handleInput}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required=""
+              value={formData.password}
+              onChange={handleInput}
+            />
+            <input
+              type="password"
+              name="password_confirmation"
+              placeholder="Confirm Password"
+              value={formData.password_confirmation}
+              onChange={handleInput}
+            />
+            <input
+              type="text"
+              name="avatar_img"
+              placeholder="Avatar"
+              value={formData.avatar_img}
+              onChange={handleInput}
+            />
+            <button type="submit">Create Account</button>
+          </form>
+        </div>
+
+        <div className="login">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="chk" aria-hidden="true">
+              Log In
+            </label>
+            
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              required=""
+              value={loginData.username}
+              onChange={handleLoginInput}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required=""
+              value={loginData.password}
+              onChange={handleLoginInput}
+            />
+            <button type="submit">Log In</button>
+          </form>
+        </div>
       </div>
-
-      <div className="login">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="chk" aria-hidden="true">
-            Log In
-          </label>
-
-          {loginErrors ?
-            <div className="error-box">
-              <p className="error-list">
-                <li>{loginErrors.error}</li>
-              </p>
-            </div>
-          : null}
-          
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            required=""
-            value={loginData.username}
-            onChange={handleLoginInput}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required=""
-            value={loginData.password}
-            onChange={handleLoginInput}
-          />
-          <button type="submit">Log In</button>
-        </form>
-      </div>
-    </div>
+    </>
   );
 };
 

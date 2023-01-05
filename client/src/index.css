@@ -278,13 +278,6 @@ li a{
   transition: 0.5s;
 }
 
-#taglist {
-  border-style: dashed;
-  border-radius: 10px;
-  border-color: #07c44c;
-  color: #04f450;
-}
-
 .main {
   /* position: absolute;
   top: 15%;
@@ -505,12 +498,22 @@ body {
 #new-toot-textbox,
 #new-tag-field {
   border-radius: 5px;
+  margin-top: 20px;
+}
+
+#taglist {
+  border-style: dashed;
+  border-radius: 10px;
+  border-color: #07c44c;
+  color: #04f450;
+  padding: 5px;
 }
 
 .error-box {
   display: flex;
   justify-content: center;
   color: red;
+  font-family: sans-serif;
   border-style: double;
   border-radius: 10px;
   border-color: red;
