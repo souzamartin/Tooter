@@ -140,7 +140,7 @@ const Login = ({ setUser }) => {
 
         <div className="login">
           <form onSubmit={handleSubmit}>
-            <label htmlFor="chk" aria-hidden="true">
+            <label className="subtitle" htmlFor="chk" aria-hidden="true">
               Log In
             </label>
             
