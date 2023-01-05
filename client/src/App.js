@@ -34,27 +34,35 @@ function App() {
       ) : null}
       <Switch>
         <Route path="/newtoot">
-          <NewToot setLatestToot={setLatestToot} />
+          {!user ?
+            <Login setUser={setUser} />
+            :
+            <NewToot setLatestToot={setLatestToot} />
+          }
         </Route>
 
         <Route path="/add-tags">
-          <NewTag latestToot={latestToot} />
+          {!user ?
+            <Login setUser={setUser} />
+            :
+            <NewTag latestToot={latestToot} />
+          }
         </Route>
 
         <Route path="/profile">
-          {!user ? (
+          {!user ?
             <Login setUser={setUser} />
-          ) : (
+          :
             <Profile user={user} setUser={setUser} />
-          )}
+          }
         </Route>
 
         <Route exact path="/">
-          {!user ? (
+          {!user ?
             <Login setUser={setUser} />
-          ) : (
+          :
             <TootContainer user={user} tagSearchDisplay={tagSearchDisplay} />
-          )}
+          }
         </Route>
       </Switch>
     </div>
