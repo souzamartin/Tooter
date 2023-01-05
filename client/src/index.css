@@ -35,7 +35,6 @@ ul {
     /* border-top-left-radius: 0px;
     border-bottom-right-radius: 0px; */
 }
-
   
 @keyframes myGradient {
     0% {
@@ -122,114 +121,161 @@ li a{
 }
 
 @keyframes myFlash {
-    0% {
-      opacity: 1;
-      text-shadow: transparent;
-    }
-    
-    50% {
-      opacity: .1;
-    }
-    
-    100% {
-      opacity: 1;
-      text-shadow: 2px 2px 20px #fff;
-    }
+  0% {
+    opacity: 1;
+    text-shadow: transparent;
+  }
+  
+  50% {
+    opacity: .1;
+  }
+  
+  100% {
+    opacity: 1;
+    text-shadow: 2px 2px 20px #fff;
+  }
 }
 
 .line {
-    height: 40px;
-    width: 2px;
-    background: #fff;
-    margin: 0;
-    position: absolute;
-    left: 88%;
-    top: 30%;
+  height: 40px;
+  width: 2px;
+  background: #fff;
+  margin: 0;
+  position: absolute;
+  left: 88%;
+  top: 30%;
 }
 
 #profile-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    width: 300px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 300px;
+  padding: 10px;
 }
 
 #create_account {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* width: 70%; */
-    border-style: solid;
-    border-radius: 10px;
-    border-color: grey;
-    padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 70%; */
+  border-style: solid;
+  border-radius: 10px;
+  border-color: grey;
+  padding-bottom: 10px;
 }
 
 #toot-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 #tag-search {
-    background: #fff;
-    height: 30px;
-    width: 500px;
-    border-radius: 30px;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.8s;
+  background: #fff;
+  height: 30px;
+  width: 500px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.8s;
 
-    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
-    -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.2),
-    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+  -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+  inset -4px -4px 6px 0 rgba(255,255,255,.2),
+  inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
 }
 
 @keyframes hoverShake {
-    0% {transform: skew(0deg,0deg);}
-    25% {transform: skew(5deg, 5deg);}
-    75% {transform: skew(-5deg, -5deg);}
-    100% {transform: skew(0deg,0deg);}
+  0% {transform: skew(0deg,0deg);}
+  25% {transform: skew(5deg, 5deg);}
+  75% {transform: skew(-5deg, -5deg);}
+  100% {transform: skew(0deg,0deg);}
 }
 
 .toot-card {
-    background: #f2f2f2;
-    flex-direction: column;
-    border-color: grey;
-    align-items: center;
-    display: flex;
-    height: auto;
-    width: 300px;
-    border-style: groove;
-    border-radius: 20px;
-    border-color: grey;
-    margin: 10px;
-    box-shadow: 0 0 100px 8px #d0d0d0;
+  display: flex;
+  flex-direction: column;
+  border-color: grey;
+  align-items: center;
+  height: auto;
+  width: 300px;
+  border-style: groove;
+  border-radius: 30px;
+  border-color: rgb(68, 0, 93);
+  margin: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  font-family: sans-serif;
+  color: #d0d0d0;
+  background: linear-gradient(to bottom, #1b2575, #302b63, #24243e);
+  box-shadow: 0 0 30px 1px #442a6d;
 }
 
-.tag-list {
+.toot-username {
+  align-self: flex-start;
+}
+
+.toot-tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .tag {
-    background-color: aqua;
-    border-radius: 10px;
-    padding: 5px;
-    margin: 3px;
+  background-color: rgb(79, 177, 247);
+  box-shadow: 0 0 10px 1px #652a6d;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 3px;
+  color: rgb(4, 4, 158);
+}
+
+.toot-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.like-toot {
+  transition: 0.7s;
+}
+
+.like-toot:hover {
+  cursor: pointer;
+  color: hsl(230, 80%, 90%);
+  text-shadow:
+    0 0 1em hsla(320, 100%, 50%, 0.5),
+    0 0 0.125em hsla(320, 100%, 60%, 0.5),
+    0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+    -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  transition: 0.5s;
+}
+
+.delete-toot {
+  border-radius: 30px;
+  border-color: red;
+  background: rgb(123, 15, 15);
+  box-shadow: 0 0 10px 1px #9b2a8e;
+  transition: 0.5s;
+}
+
+.delete-toot:hover {
+  background: rgb(186, 22, 22);
+  box-shadow: 0 0 15px 2px #ff46e9;
+  transition: 0.5s;
 }
 
 #taglist {
@@ -404,7 +450,7 @@ li a{
 }
 
 .box .inner:first-child {
-    background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);;
+    background-color: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
     animation: lights 7s 800ms linear infinite;
     /* transform-origin: right;
     transform: perspective(100px) rotateY(-15deg); */
@@ -446,7 +492,7 @@ li a{
 }
 
 body {
-    background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
+  background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
 }
 
 #new-toot {

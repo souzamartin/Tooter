@@ -32,13 +32,15 @@ const Toot = ({ toot, user, deleteToot }) => {
 
   return (
     <div className="toot-card">
-      <h3>{toot.user.username}</h3>
+      <h3 className="toot-username">{toot.user.username}</h3>
       <p>{toot.content}</p>
-      <div className="tag-list">{renderedTags}</div>
-      <p onClick={handleLike}>💕 {likes}</p>
-      {user.id === toot.user.id ? (
-        <button onClick={handleDelete}>❌</button>
-      ) : null}
+      <div className="toot-tags">{renderedTags}</div>
+      <div className="toot-buttons">
+        <span className="like-toot" onClick={handleLike}>💕 {likes}</span>
+        {user.id === toot.user.id ? (
+          <button className="delete-toot" onClick={handleDelete}>❌</button>
+        ) : null}
+      </div>
       <span className="timestamp">
         {timestamp.toLocaleString("en-us", { timeZone: "EST" })}
       </span>
