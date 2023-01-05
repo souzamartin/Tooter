@@ -10,6 +10,7 @@
     flex-direction: column;
     align-items: center;
     margin: 100px;
+    margin-top: 10px;
     justify-content: center;
 }
 
@@ -25,12 +26,14 @@ ul {
     display: flex;
     padding: 18px 0;
     background-size: 400% 400%;
-    background-image: linear-gradient(-45deg, #9ea8d3, #5E17EB, #071aa4, #ff8033,#07c44c);
+    /* background-image: linear-gradient(-45deg, #9ea8d3, #5E17EB, #071aa4, #ff8033,#07c44c); */
+    background-image: linear-gradient(-45deg, #2d3f8f, #391288, #071aa4, #834480,#0e5474);
     animation: 12s myGradient infinite;
     border-radius: 40px;
-    box-shadow: 3px 3px 20px #04f450;
-    border-top-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+    /* box-shadow: 3px 3px 20px #04f450; */
+    box-shadow: 3px 3px 20px #7c04f4;
+    /* border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px; */
 }
 
   
@@ -73,8 +76,8 @@ li a{
     color: #fff;
     text-decoration: none;
     padding: 45px 45px;
-    font-family: verdana;
-    font-weight: lighter;
+    font-family: sans-serif;
+    /* font-weight: lighter; */
     font-size: 24px;
     letter-spacing: 1px;
     opacity: 0.9;
