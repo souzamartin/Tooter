@@ -24,47 +24,35 @@ function App() {
   return (
     <div className="App">
       <Title />
-      {user ? (
-        <Header
-          user={user}
-          setUser={setUser}
-          setTagSearchDisplay={setTagSearchDisplay}
-          tagSearchDisplay={tagSearchDisplay}
-        />
-      ) : null}
-      <Switch>
-        <Route path="/newtoot">
-          {!user ?
-            <Login setUser={setUser} />
-            :
-            <NewToot setLatestToot={setLatestToot} />
-          }
-        </Route>
+      {!user ?
+        <Login setUser={setUser} />
+        :
+        <>
+          <Header
+            user={user}
+            setUser={setUser}
+            setTagSearchDisplay={setTagSearchDisplay}
+            tagSearchDisplay={tagSearchDisplay}
+          />
+          <Switch>
+            <Route path="/newtoot">
+                <NewToot setLatestToot={setLatestToot} />
+            </Route>
 
-        <Route path="/add-tags">
-          {!user ?
-            <Login setUser={setUser} />
-            :
-            <NewTag latestToot={latestToot} />
-          }
-        </Route>
+            <Route path="/add-tags">
+                <NewTag latestToot={latestToot} />
+            </Route>
 
-        <Route path="/profile">
-          {!user ?
-            <Login setUser={setUser} />
-          :
-            <Profile user={user} setUser={setUser} />
-          }
-        </Route>
+            <Route path="/profile">
+                <Profile user={user} setUser={setUser} />
+            </Route>
 
-        <Route exact path="/">
-          {!user ?
-            <Login setUser={setUser} />
-          :
-            <TootContainer user={user} tagSearchDisplay={tagSearchDisplay} />
-          }
-        </Route>
-      </Switch>
+            <Route exact path="/">
+                <TootContainer user={user} tagSearchDisplay={tagSearchDisplay} />
+            </Route>
+          </Switch>
+        </>
+      }
     </div>
   );
 }
