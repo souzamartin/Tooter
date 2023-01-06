@@ -367,7 +367,7 @@ li a{
 
 .main button,
 .fancy-button {
-  width: 60%;
+  width: fit-content;
 	height: 40px;
 	margin: 10px auto;
 	justify-content: center;
@@ -549,7 +549,7 @@ body {
 
 .bubble {
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   position: relative;
   display: block;
   font-family: sans-serif;
@@ -565,7 +565,6 @@ body {
 
 
 .bubble-bottom-left:before {
-
   content: "";
   width: 0px;
   height: 0px;
@@ -576,7 +575,4 @@ body {
   border-right: 12px solid transparent;
   border-bottom: 12px solid  hsl(230, 40%, 12%);
   border-top: 20px solid transparent;
- 
-  
-  
 }
