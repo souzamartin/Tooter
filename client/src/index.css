@@ -22,6 +22,7 @@
 
     position: sticky;
     top: -2%;
+    z-index: 1;
   
 }
 
@@ -184,6 +185,7 @@ li a{
   flex-direction: column;
   align-items: center;
   width: 100%;
+  
 }
 
 #tag-search {
@@ -228,6 +230,7 @@ li a{
   color: #d0d0d0;
   background: linear-gradient(to bottom, #1b2575, #302b63, #24243e);
   box-shadow: 0 0 30px 1px #442a6d;
+  
 }
 
 .toot-username {
@@ -557,8 +560,13 @@ body {
   padding: 24px;
   text-align: center;
   background-color: #000;
-  color: #fff;
   opacity: .5;  
+}
+
+.bubble p {
+
+  color: rgba(254, 254, 254, 1)
+  
 }
 
 .bubble-bottom-left:before {

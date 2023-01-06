@@ -38,7 +38,7 @@ const Toot = ({ toot, user, deleteToot, setViewUser }) => {
       >
         {toot.user.username}
       </h3>
-      <div className="bubble bubble-bottom-left">{toot.content}</div>
+      <div className="bubble bubble-bottom-left"><p>{toot.content}</p></div>
       <div className="toot-tags">{renderedTags}</div>
       <div className="toot-buttons">
         <span className="like-toot" onClick={handleLike}>
