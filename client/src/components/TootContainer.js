@@ -2,21 +2,21 @@ import Toot from "./Toot";
 import { useEffect, useState } from "react";
 
 const TootContainer = ({ user, tagSearchDisplay }) => {
-  const [toots, setToots] = useState([])
-  const [searchText, setSearchText] = useState("")
-  const [viewUser, setViewUser] = useState("")
+  const [toots, setToots] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [viewUser, setViewUser] = useState("");
 
   const getToots = () => {
     fetch("/toots")
-      .then(r => r.json())
+      .then((r) => r.json())
       .then(setToots);
   };
 
   useEffect(() => {
-    getToots()
-    setViewUser("")
+    getToots();
+    setViewUser("");
   }, []);
-  
+
   const deleteToot = (tootId) => {
     fetch(`/toots/${tootId}`, { method: "DELETE" }).then(getToots);
   };
@@ -25,15 +25,15 @@ const TootContainer = ({ user, tagSearchDisplay }) => {
     setSearchText(e.target.value);
   };
 
-  const filteredToots = toots.filter(toot =>
+  const filteredToots = toots.filter((toot) =>
     toot.tag_labels.toString().toLowerCase().includes(searchText.toLowerCase())
   );
 
-  const viewUsersToots = filteredToots.filter(toot =>
+  const viewUsersToots = filteredToots.filter((toot) =>
     toot.user.username.includes(viewUser)
-  )
+  );
 
-  const renderedToots = viewUsersToots.map(toot => {
+  const renderedToots = viewUsersToots.map((toot) => {
     return (
       <Toot
         key={toot.id}
@@ -47,7 +47,7 @@ const TootContainer = ({ user, tagSearchDisplay }) => {
 
   return (
     <div id="toot-container">
-      {tagSearchDisplay ?
+      {tagSearchDisplay ? (
         <input
           id="tag-search"
           type="text"
@@ -56,16 +56,13 @@ const TootContainer = ({ user, tagSearchDisplay }) => {
           value={searchText}
           onChange={handleChange}
         />
-      : null}
+      ) : null}
 
-      {viewUser !== "" ?
-        <button
-          className="fancy-button"
-          onClick={() => setViewUser("")}
-        >
+      {viewUser !== "" ? (
+        <button className="fancy-button" onClick={() => setViewUser("")}>
           Show All Toots
         </button>
-      : null}
+      ) : null}
 
       <div>{renderedToots}</div>
     </div>
