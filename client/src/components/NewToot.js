@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-const NewToot = ({ setLatestToot }) => {
+const NewToot = ({ setLatestToot, setOnFeed }) => {
+  useEffect(() => {
+    setOnFeed(false);
+  }, []);
   const history = useHistory();
 
   const [errors, setErrors] = useState(null);
