@@ -11,7 +11,7 @@ import NewTag from "./components/NewTag";
 function App() {
   const [user, setUser] = useState(null);
   const [tagSearchDisplay, setTagSearchDisplay] = useState(false);
-  const [latestToot, setLatestToot] = useState(null)
+  const [latestToot, setLatestToot] = useState(null);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -24,9 +24,9 @@ function App() {
   return (
     <div className="App">
       <Title />
-      {!user ?
+      {!user ? (
         <Login setUser={setUser} />
-        :
+      ) : (
         <>
           <Header
             user={user}
@@ -36,23 +36,23 @@ function App() {
           />
           <Switch>
             <Route path="/newtoot">
-                <NewToot setLatestToot={setLatestToot} />
+              <NewToot setLatestToot={setLatestToot} />
             </Route>
 
             <Route path="/add-tags">
-                <NewTag latestToot={latestToot} />
+              <NewTag latestToot={latestToot} />
             </Route>
 
             <Route path="/profile">
-                <Profile user={user} setUser={setUser} />
+              <Profile user={user} setUser={setUser} />
             </Route>
 
             <Route exact path="/">
-                <TootContainer user={user} tagSearchDisplay={tagSearchDisplay} />
+              <TootContainer user={user} tagSearchDisplay={tagSearchDisplay} />
             </Route>
           </Switch>
         </>
-      }
+      )}
     </div>
   );
 }
