@@ -559,26 +559,24 @@ body {
   border-radius: 30px;
   padding: 24px;
   text-align: center;
-  background-color: #000;
-  opacity: .5;  
+  background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
 }
 
-.bubble p {
 
-  color: rgba(254, 254, 254, 1)
-  
-}
 
 .bubble-bottom-left:before {
+
   content: "";
   width: 0px;
   height: 0px;
   position: absolute;
   left: 30px;
   top: -24px;
-  border-left: 24px solid #000;
+  border-left: 24px solid hsl(230, 40%, 12%);
   border-right: 12px solid transparent;
-  border-bottom: 12px solid #000;
+  border-bottom: 12px solid  hsl(230, 40%, 12%);
   border-top: 20px solid transparent;
+ 
+  
   
 }
