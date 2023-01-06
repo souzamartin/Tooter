@@ -1,10 +1,14 @@
 import Toot from "./Toot";
 import { useEffect, useState } from "react";
 
-const TootContainer = ({ user, tagSearchDisplay }) => {
+const TootContainer = ({ user, tagSearchDisplay, setOnFeed }) => {
   const [toots, setToots] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [viewUser, setViewUser] = useState("");
+
+  useEffect(() => {
+    setOnFeed(true);
+  }, []);
 
   const getToots = () => {
     fetch("/toots")

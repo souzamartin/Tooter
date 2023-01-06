@@ -12,6 +12,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [tagSearchDisplay, setTagSearchDisplay] = useState(false);
   const [latestToot, setLatestToot] = useState(null);
+  const [onFeed, setOnFeed] = useState(false);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -33,10 +34,12 @@ function App() {
             setUser={setUser}
             setTagSearchDisplay={setTagSearchDisplay}
             tagSearchDisplay={tagSearchDisplay}
+            onFeed={onFeed}
+            setOnFeed={setOnFeed}
           />
           <Switch>
             <Route path="/newtoot">
-              <NewToot setLatestToot={setLatestToot} />
+              <NewToot setLatestToot={setLatestToot} setOnFeed={setOnFeed} />
             </Route>
 
             <Route path="/add-tags">
@@ -44,11 +47,15 @@ function App() {
             </Route>
 
             <Route path="/profile">
-              <Profile user={user} setUser={setUser} />
+              <Profile user={user} setUser={setUser} setOnFeed={setOnFeed} />
             </Route>
 
             <Route exact path="/">
-              <TootContainer user={user} tagSearchDisplay={tagSearchDisplay} />
+              <TootContainer
+                user={user}
+                tagSearchDisplay={tagSearchDisplay}
+                setOnFeed={setOnFeed}
+              />
             </Route>
           </Switch>
         </>

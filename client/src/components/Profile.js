@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-const Profile = ({ user, setUser }) => {
+const Profile = ({ user, setUser, setOnFeed }) => {
+  useEffect(() => {
+    setOnFeed(false);
+  }, []);
+
   const history = useHistory();
 
   const [formData, setFormData] = useState({
