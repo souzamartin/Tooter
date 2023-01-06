@@ -35,15 +35,19 @@ const Toot = ({ toot, user, deleteToot, setViewUser }) => {
       <h3
         className="toot-username"
         onClick={() => setViewUser(toot.user.username)}
-        >
-          {toot.user.username}
-        </h3>
-      <p>{toot.content}</p>
+      >
+        {toot.user.username}
+      </h3>
+      <div className="bubble bubble-bottom-left">{toot.content}</div>
       <div className="toot-tags">{renderedTags}</div>
       <div className="toot-buttons">
-        <span className="like-toot" onClick={handleLike}>💕 {likes}</span>
+        <span className="like-toot" onClick={handleLike}>
+          💕 {likes}
+        </span>
         {user.id === toot.user.id ? (
-          <button className="delete-toot" onClick={handleDelete}>❌</button>
+          <button className="delete-toot" onClick={handleDelete}>
+            ❌
+          </button>
         ) : null}
       </div>
       <span className="timestamp">
