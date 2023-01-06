@@ -1,6 +1,0 @@
-// Are you sure you wnt to delete it?
-
-// conditional for the fetch
-
-/// Router Validation
-
