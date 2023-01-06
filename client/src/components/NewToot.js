@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const NewToot = ({setLatestToot}) => {
+const NewToot = ({ setLatestToot }) => {
   const history = useHistory();
 
-  const [errors, setErrors] = useState(null)
+  const [errors, setErrors] = useState(null);
 
   const [newToot, setNewToot] = useState({
     content: "",
-    likes: 0
+    likes: 0,
   });
 
   const handleSubmit = (e) => {
@@ -18,16 +18,15 @@ const NewToot = ({setLatestToot}) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newToot),
-    })
-    .then(r => {
+    }).then((r) => {
       if (r.ok) {
-        r.json().then(setLatestToot)
-        history.push("/add-tags")
+        r.json().then(setLatestToot);
+        history.push("/add-tags");
       } else {
-        r.json().then(setErrors)
+        r.json().then(setErrors);
       }
-    })
-  }
+    });
+  };
 
   const handleChange = (e) => {
     setNewToot({
@@ -39,18 +38,21 @@ const NewToot = ({setLatestToot}) => {
   return (
     <div>
       <p className="sub-subtitle">Let's hear it!</p>
-      
-      {errors ?
+
+      {errors ? (
         <div className="error-box">
           <p className="error-list">
-            {errors.errors.map((e, index) => <li key={index}>{e}</li>)}
+            {errors.errors.map((e, index) => (
+              <li key={index}>{e}</li>
+            ))}
           </p>
         </div>
-      : null}
+      ) : null}
 
       <form id="new-toot" onSubmit={handleSubmit}>
         <textarea
           id="new-toot-textbox"
+          rows="5"
           name="content"
           placeholder="Write a toot..."
           value={newToot.content}

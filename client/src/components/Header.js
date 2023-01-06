@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = ({ user, setUser, setTagSearchDisplay, tagSearchDisplay }) => {
   const handleLogout = () => {
-    fetch("/logout", { method: "DELETE" }).then(r => {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) setUser(null);
     });
   };
@@ -16,7 +16,7 @@ const Header = ({ user, setUser, setTagSearchDisplay, tagSearchDisplay }) => {
       <div className="navigation">
         <nav>
           <ul className="nav-type">
-          <li>
+            <li>
               <NavLink className="active" to="/newtoot">
                 Toot!
               </NavLink>
@@ -55,10 +55,3 @@ const Header = ({ user, setUser, setTagSearchDisplay, tagSearchDisplay }) => {
 };
 
 export default Header;
-
-// <div id="header">
-//     <h1 id="maintitle">🎺 Tooter</h1>
-//     <NavLink to='/'>Feed</NavLink>
-//     <NavLink to='/profile'>Profile</NavLink>
-//
-// </div>
