@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+*TOOTER*
 
-Things you may want to cover:
+Originally a phase 4 project by Jonny Tilahun & Martin Souza
 
-* Ruby version
+Flatiron School Software Engineering program
 
-* System dependencies
+10/10/22 east cohort
 
-* Configuration
+This fork updated and maintained by Martin Souza
 
-* Database creation
 
-* Database initialization
+## ABOUT
+Tooter is a cheeky social media app where users can share their hottest takes in 25 characters or less, and categorize posts with associated tags.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## TECHNOLOGIES
+• SQLite relational database
 
-* Deployment instructions
+• Rails API with Active Record and Active Model Serializers
 
-* ...
+• User auth with BCrypt
+
+• React client with custom CSS
