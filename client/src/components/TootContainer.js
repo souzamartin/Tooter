@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Toot from "./Toot";
 
-const TootContainer = ({ user, tagSearchDisplay, setOnFeed }) => {
+const TootContainer = ({ user, showTagSearch, setOnFeed }) => {
   const [toots, setToots] = useState([])
   const [searchText, setSearchText] = useState("")
   const [viewUser, setViewUser] = useState("")
@@ -51,7 +51,7 @@ const TootContainer = ({ user, tagSearchDisplay, setOnFeed }) => {
 
   return (
     <div id="toot-container">
-      {tagSearchDisplay ? (
+      {showTagSearch ? (
         <input
           id="tag-search"
           type="text"
@@ -72,7 +72,7 @@ const TootContainer = ({ user, tagSearchDisplay, setOnFeed }) => {
         {filteredToots.length !== 0 ?
           renderedToots
         :
-          <h3 className="subtitle">No toots with matching tags.</h3>
+          <h2 className="sub-subtitle">No toots with matching tags.</h2>
         }
       </div>
     </div>

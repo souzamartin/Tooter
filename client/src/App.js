@@ -10,7 +10,7 @@ import NewTag from "./components/NewTag"
 
 function App() {
   const [user, setUser] = useState(null)
-  const [tagSearchDisplay, setTagSearchDisplay] = useState(false)
+  const [showTagSearch, setShowTagSearch] = useState(false)
   const [latestToot, setLatestToot] = useState(null)
   const [onFeed, setOnFeed] = useState(false)
 
@@ -32,8 +32,8 @@ function App() {
           <Header
             user={user}
             setUser={setUser}
-            setTagSearchDisplay={setTagSearchDisplay}
-            tagSearchDisplay={tagSearchDisplay}
+            setShowTagSearch={setShowTagSearch}
+            showTagSearch={showTagSearch}
             onFeed={onFeed}
             setOnFeed={setOnFeed}
           />
@@ -53,7 +53,7 @@ function App() {
             <Route exact path="/">
               <TootContainer
                 user={user}
-                tagSearchDisplay={tagSearchDisplay}
+                showTagSearch={showTagSearch}
                 setOnFeed={setOnFeed}
               />
             </Route>

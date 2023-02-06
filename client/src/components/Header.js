@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 const Header = ({
   user,
   setUser,
-  setTagSearchDisplay,
-  tagSearchDisplay,
+  setShowTagSearch,
+  showTagSearch,
   onFeed,
 }) => {
   const handleLogout = () => {
@@ -14,8 +14,8 @@ const Header = ({
   }
 
   const showSearch = () => {
-    setTagSearchDisplay(!tagSearchDisplay)
-  };
+    setShowTagSearch(!showTagSearch)
+  }
 
   return (
     <div id="header">
