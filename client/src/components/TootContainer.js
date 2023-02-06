@@ -29,6 +29,12 @@ const TootContainer = ({ user, showTagSearch, setOnFeed }) => {
     setSearchText(e.target.value)
   }
 
+  useEffect(() => {
+    if (showTagSearch === false) {
+      setSearchText("")
+    }
+  }, [showTagSearch])
+
   const filteredToots = toots.filter(toot =>
     toot.tag_labels.toString().toLowerCase().includes(searchText.toLowerCase())
   )
@@ -72,7 +78,7 @@ const TootContainer = ({ user, showTagSearch, setOnFeed }) => {
         {filteredToots.length !== 0 ?
           renderedToots
         :
-          <h2 className="sub-subtitle">No toots with matching tags.</h2>
+          <h3 className="sub-subtitle">No toots with matching tags.</h3>
         }
       </div>
     </div>
