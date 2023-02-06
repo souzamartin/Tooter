@@ -69,10 +69,10 @@ const TootContainer = ({ user, tagSearchDisplay, setOnFeed }) => {
       ) : null}
 
       <div>
-        {filteredToots !== [] ?
+        {filteredToots.length !== 0 ?
           renderedToots
         :
-          <h2 className="subtitle">No toots with matching tags.</h2>
+          <h3 className="subtitle">No toots with matching tags.</h3>
         }
       </div>
     </div>
