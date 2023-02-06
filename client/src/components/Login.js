@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useState } from "react"
+import { useHistory } from "react-router-dom"
 
 const Login = ({ setUser }) => {
-  const history = useHistory();
+  const history = useHistory()
 
   const [signupErrors, setSignupErrors] = useState(null)
   const [loginErrors, setLoginErrors] = useState(null)
@@ -20,8 +20,8 @@ const Login = ({ setUser }) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -54,7 +54,7 @@ const Login = ({ setUser }) => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     fetch("/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -62,12 +62,12 @@ const Login = ({ setUser }) => {
     })
     .then(r => {
       if (r.ok) {
-        r.json().then(setUser);
+        r.json().then(setUser)
       } else {
-        r.json().then(setLoginErrors);
+        r.json().then(setLoginErrors)
       }
-    });
-  };
+    })
+  }
 
   return (
     <>
@@ -165,7 +165,7 @@ const Login = ({ setUser }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

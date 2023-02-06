@@ -1,21 +1,20 @@
-import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useState, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 
 const NewToot = ({ setLatestToot, setOnFeed }) => {
-  useEffect(() => {
-    setOnFeed(false);
-  }, []);
-  const history = useHistory();
+  useEffect(() => {setOnFeed(false)}, [])
 
-  const [errors, setErrors] = useState(null);
+  const history = useHistory()
+
+  const [errors, setErrors] = useState(null)
 
   const [newToot, setNewToot] = useState({
     content: "",
     likes: 0,
-  });
+  })
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     fetch("/toots", {
       method: "POST",
@@ -23,20 +22,20 @@ const NewToot = ({ setLatestToot, setOnFeed }) => {
       body: JSON.stringify(newToot),
     }).then((r) => {
       if (r.ok) {
-        r.json().then(setLatestToot);
-        history.push("/add-tags");
+        r.json().then(setLatestToot)
+        history.push("/add-tags")
       } else {
-        r.json().then(setErrors);
+        r.json().then(setErrors)
       }
-    });
-  };
+    })
+  }
 
   const handleChange = (e) => {
     setNewToot({
       ...newToot,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   return (
     <div>
@@ -64,7 +63,7 @@ const NewToot = ({ setLatestToot, setOnFeed }) => {
         <input className="fancy-button" type="submit" />
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default NewToot;
+export default NewToot

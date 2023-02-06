@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState } from "react"
 
 const Toot = ({ toot, user, deleteToot, setViewUser }) => {
-  const [likes, setLikes] = useState(toot.likes);
+  const [likes, setLikes] = useState(toot.likes)
 
   const handleDelete = () => {
-    deleteToot(toot.id);
+    deleteToot(toot.id)
   };
 
   const renderedTags = toot.tag_labels.map((tag, index) => {
@@ -12,10 +12,10 @@ const Toot = ({ toot, user, deleteToot, setViewUser }) => {
       <span key={index} className="tag">
         #{tag}
       </span>
-    );
-  });
+    )
+  })
 
-  const timestamp = new Date(toot.created_at);
+  const timestamp = new Date(toot.created_at)
 
   const handleLike = () => {
     fetch(`/toots/${toot.id}/like`, {
@@ -26,9 +26,9 @@ const Toot = ({ toot, user, deleteToot, setViewUser }) => {
     })
       .then((r) => r.json())
       .then((data) => {
-        setLikes(data.likes);
-      });
-  };
+        setLikes(data.likes)
+      })
+  }
 
   return (
     <div className="toot-card">
@@ -54,7 +54,7 @@ const Toot = ({ toot, user, deleteToot, setViewUser }) => {
         {timestamp.toLocaleString("en-us", { timeZone: "EST" })}
       </span>
     </div>
-  );
-};
+  )
+}
 
-export default Toot;
+export default Toot

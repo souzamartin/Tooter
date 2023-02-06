@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useState } from "react"
+import { useHistory } from "react-router-dom"
 
 const NewTag = ({latestToot}) => {
   const history = useHistory()
@@ -21,7 +21,7 @@ const NewTag = ({latestToot}) => {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     fetch("/tags", {
       method: "POST",
@@ -70,7 +70,7 @@ const NewTag = ({latestToot}) => {
         <input className="fancy-button" type="submit" value="Add Tags" />
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default NewTag;
+export default NewTag

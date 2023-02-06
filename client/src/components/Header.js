@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 const Header = ({
@@ -9,13 +8,13 @@ const Header = ({
   onFeed,
 }) => {
   const handleLogout = () => {
-    fetch("/logout", { method: "DELETE" }).then((r) => {
-      if (r.ok) setUser(null);
-    });
-  };
+    fetch("/logout", { method: "DELETE" }).then(r => {
+      if (r.ok) setUser(null)
+    })
+  }
 
-  const handleSearch = () => {
-    setTagSearchDisplay(!tagSearchDisplay);
+  const showSearch = () => {
+    setTagSearchDisplay(!tagSearchDisplay)
   };
 
   return (
@@ -52,7 +51,7 @@ const Header = ({
             <li>
               <a>
                 {onFeed ? (
-                  <i className="fa fa-search" onClick={handleSearch}></i>
+                  <i className="fa fa-search" onClick={showSearch}></i>
                 ) : null}
               </a>
             </li>
