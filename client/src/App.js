@@ -22,6 +22,12 @@ function App() {
     })
   }, [])
 
+  useEffect(() => {
+    if (onFeed === false) {
+      setShowTagSearch(false)
+    }
+  }, [onFeed])
+
   return (
     <div className="App">
       <Title />

@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useState, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 
 const Profile = ({ user, setUser, setOnFeed }) => {
   useEffect(() => {
-    setOnFeed(false);
-  }, []);
+    setOnFeed(false)
+  }, [])
 
-  const history = useHistory();
+  const history = useHistory()
 
   const [formData, setFormData] = useState({
     username: user.username,
@@ -16,7 +16,7 @@ const Profile = ({ user, setUser, setOnFeed }) => {
     avatar_img: user.avatar_img,
   });
 
-  const [errors, setErrors] = useState(null);
+  const [errors, setErrors] = useState(null)
 
   const handleInput = (e) => {
     setFormData({
@@ -33,10 +33,10 @@ const Profile = ({ user, setUser, setOnFeed }) => {
       body: JSON.stringify(formData),
     }).then((r) => {
       if (r.ok) {
-        r.json().then(setUser);
-        history.push("/");
+        r.json().then(setUser)
+        history.push("/")
       } else {
-        r.json().then(setErrors);
+        r.json().then(setErrors)
       }
     });
   };
@@ -45,8 +45,8 @@ const Profile = ({ user, setUser, setOnFeed }) => {
     if (window.confirm("Are you sure you want to delete your account?")) {
       fetch(`/users/${user.id}`, { method: "DELETE" }).then((r) => {
         if (r.ok) {
-          setUser(null);
-          history.push("/");
+          setUser(null)
+          history.push("/")
         }
       });
     }
@@ -110,7 +110,7 @@ const Profile = ({ user, setUser, setOnFeed }) => {
         Delete Account
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

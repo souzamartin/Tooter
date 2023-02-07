@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import Toot from "./Toot";
+import { useEffect, useState } from "react"
+import Toot from "./Toot"
 
 const TootContainer = ({ user, showTagSearch, setOnFeed }) => {
   const [toots, setToots] = useState([])
@@ -57,22 +57,22 @@ const TootContainer = ({ user, showTagSearch, setOnFeed }) => {
 
   return (
     <div id="toot-container">
-      {showTagSearch ? (
+      {showTagSearch ?
         <input
           id="tag-search"
           type="text"
           placeholder="Search tags..."
-          style={{ animation: "hoverShake 0.15s linear 3" }}
+          style={{animation: "hoverShake 0.15s linear 3"}}
           value={searchText}
           onChange={handleChange}
         />
-      ) : null}
+      : null}
 
-      {viewUser !== "" ? (
+      {viewUser !== "" ?
         <button className="fancy-button" onClick={() => setViewUser("")}>
           Show All Toots
         </button>
-      ) : null}
+      : null}
 
       <div>
         {filteredToots.length !== 0 ?

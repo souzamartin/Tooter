@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"
 
 const Header = ({
   user,
@@ -38,7 +38,7 @@ const Header = ({
               </NavLink>
             </li>
             <li>
-              {user ? (
+              {user ?
                 <a
                   id="logout-button"
                   className="active1"
@@ -46,20 +46,20 @@ const Header = ({
                 >
                   Logout
                 </a>
-              ) : null}
+              : null}
             </li>
             <li>
               <a>
-                {onFeed ? (
+                {onFeed ?
                   <i className="fa fa-search" onClick={showSearch}></i>
-                ) : null}
+                : null}
               </a>
             </li>
           </ul>
         </nav>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
